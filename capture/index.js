@@ -14,7 +14,7 @@ async function takeScreenshot(domain, username, password) {
     let browser = null;
     try {
         // launch headless Chromium browser
-        browser = await puppeteer.launch({ headless: true });
+        browser = await puppeteer.launch({ headless: false });
         // create new page object
         const page = await browser.newPage();
         await page.setDefaultNavigationTimeout(0);
@@ -34,7 +34,7 @@ async function takeScreenshot(domain, username, password) {
         const clickLogin = 'button[name="loginButton"]'
         await page.evaluate((clickLogin) => document.querySelector(clickLogin).click(), clickLogin);
 
-        await page.waitForTimeout(15000)
+        await page.waitForTimeout(24000)
 
         let reportElement = "a#reportsMenu"
         await page.evaluate((reportElement) => document.querySelector(reportElement).click(), reportElement);
@@ -45,7 +45,7 @@ async function takeScreenshot(domain, username, password) {
         await elementSelector.click()
         await page.waitForTimeout(10000)
 
-        let jpeg = await page.screenshot({ encoding: "base64" });
+        let jpeg = await page.screenshot({ fullPage: true, encoding: "base64" });
         return ResJpeg = jpeg
 
     } catch (err) {

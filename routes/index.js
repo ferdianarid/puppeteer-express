@@ -2,11 +2,6 @@ const express = require('express')
 const router = express.Router()
 const tests = require('../capture')
 
-router.get('/', (req, res) => {
-    res.send('<h1>Home</h1>')
-})
-
-
 router.post('/data', async(req, res) => {
     var username = req.body.username
     var domain = req.body.domain
