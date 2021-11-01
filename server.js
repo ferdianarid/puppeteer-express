@@ -7,9 +7,11 @@ const cors = require('cors')
 var bodyParser = require('body-parser')
 const router = require('./routes')
 
+// Dotenv Config
 require('dotenv/config')
 const PORT = process.env.PORT
 
+// Parsing Data
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
@@ -23,8 +25,9 @@ app.use(cors({
     allowedHeaders: true
 }))
 
-// app.set('view engine', 'pug')
-// app.set("views", path.join(__dirname, "views"));
+// Template Engine
+app.set('view engine', 'pug')
+app.set("views", path.join(__dirname, "views"));
 
 app.use(router)
 
