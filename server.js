@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 
 // CORS Setting || Allowed Origin
 app.use(cors({
-    origin: "http://119.8.175.1:5050/",
+    origin: "https://learnwithfun.vercel.app",
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     preflightContinue: true,
     allowedHeaders: true
