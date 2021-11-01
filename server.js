@@ -15,15 +15,16 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
+// CORS Setting || Allowed Origin
 app.use(cors({
-    origin: "*",
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"]
+    origin: "http://119.8.175.1:5050/",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    preflightContinue: true,
+    allowedHeaders: true
 }))
 
-app.set('view engine', 'pug')
-app.set("views", path.join(__dirname, "views"));
-
-
+// app.set('view engine', 'pug')
+// app.set("views", path.join(__dirname, "views"));
 
 app.use(router)
 
